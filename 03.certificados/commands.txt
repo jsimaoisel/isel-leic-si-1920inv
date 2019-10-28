@@ -1,0 +1,13 @@
+# apresentar detalhes do certificado em texto
+openssl x509 -in digicert.cer -text -noout
+
+# apresentar módulo
+openssl x509 -in digicert.cer -noout -modulus
+
+####
+
+# mostrar detalhes em ASN1
+openssl asn1parse -i -in digicert.cer
+
+# extrair corpo
+openssl asn1parse -i -in digicert.cer -strparse 4 -out digicert_body.bin -noout
